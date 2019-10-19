@@ -1,41 +1,41 @@
 buildscript {
-  dependencies {
-    repositories {
-      mavenCentral()
+    dependencies {
+        repositories {
+            mavenCentral()
 
-      // NOTE: This is only needed when developing the plugin!
-      mavenLocal()
+            // NOTE: This is only needed when developing the plugin!
+            mavenLocal()
+        }
+
+        classpath 'com.android.tools.build:gradle:1.1.0-rc3'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
     }
-
-    classpath 'com.android.tools.build:gradle:1.1.0-rc3'
-    classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
-  }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'hugo'
 
 dependencies {
-  repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
 
-    // NOTE: This is only needed when developing the plugin!
-    mavenLocal()
-  }
+        // NOTE: This is only needed when developing the plugin!
+        mavenLocal()
+    }
 }
 
 android {
-  compileSdkVersion 21
-  buildToolsVersion '21.1.2'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
-  }
-
-  buildTypes {
-    dev {
-      applicationIdSuffix '.dev'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
-  }
+
+    buildTypes {
+        dev {
+            applicationIdSuffix '.dev'
+        }
+    }
 }
